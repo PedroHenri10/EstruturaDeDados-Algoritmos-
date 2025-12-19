@@ -1,0 +1,96 @@
+/*nome: mergeSort.cpp
+author: pedro henrique
+date: 14/05/2025
+description: implementação do algoritmo do método de ordenação merge sort
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+// sessão de prototipação
+void mergeSort(int *, int, int); //quebra
+void merge(int *, int, int, int); //junta
+//variaveis globais
+int copia = 0;
+
+int main(){
+	int inicio, fim, i;
+	inicio = 0;
+	int vet [] = {35, 72, 17, 3, 28, 93, 54, 12, 21, 45};
+	// int vet[] = {93, 72, 54, 45, 35, 28, 21, 17, 12, 3};
+	// int vet[] = {3, 12, 17, 21, 28, 35, 45,54,72,93};
+	
+	
+	int tam = sizeof(vet)/sizeof(int);
+	fim = tam-1;
+	printf("\n vetor desordenado:");
+	for(i =0; i<tam;i++){
+		printf(" %d |", vet[i]);
+	}
+	
+	mergeSort(vet, inicio, fim); // involke da função
+	
+	printf("\n vetor ordenado com merge sort: ");
+	for(i =0; i<tam;i++){
+		printf(" %d |", vet[i]);
+	}
+	
+	return 0;
+}//fim do main
+
+//funcao recursiva que quebra até chegar em uma única unidade
+void mergeSort(int vetor[],int inicio, int fim){
+	if(inicio < fim){
+		int meio = (inicio + fim)/2;
+		mergeSort(vetor, inicio, meio); //esquerdo
+		mergeSort(vetor, meio + 1, fim); //direito
+		merge(vetor, inicio, meio, fim);
+	}
+}
+
+//funcao que junta tudo, mesclando os elementos
+void merge(int V[], int inicio, int meio, int fim){
+	int esq, dir, aux, tam;
+	esq = inicio;
+	dir = meio +1;
+	aux = 0;
+	tam = fim - inicio + 1;
+	int vetAux[tam];
+	
+	while(esq <= meio && dir <= fim){
+		if(V[esq] < V[dir]){
+			copia++;
+			vetAux[aux] = V[esq];
+			esq++;
+		}else{
+			copia++;
+			vetAux[aux] = V[dir];
+			dir++;
+		}
+		aux++;
+	}
+	
+	//Caso ainda haja elementos na PRIMEIRA METADE, copiará todo o restante para vetAux
+	while(esq <= meio){
+		copia++;
+		vetAux[aux] = V[esq];
+		aux++;
+		esq++;
+	}
+	
+	//Caso ainda haja elementos na SEGUNDA METADE, copiará todo o restante para vetAux
+	while(dir <=fim){
+		copia++;
+		vetAux[aux] = V[dir];
+		aux++;
+		dir++;
+	}
+	
+	//move os elementos de volta para o vetor original
+	for(aux = inicio; aux<=fim; aux++){
+		copia++;
+		V[aux] = vetAux[aux-inicio];
+	}
+	
+	//free(vetAux);
+}
