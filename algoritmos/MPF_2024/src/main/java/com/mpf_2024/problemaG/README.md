@@ -30,27 +30,3 @@ Entretanto, a jovem altruísta percebeu que precisaria organizar a forma como o 
 
 ---
 
-## Especificações de Entrada
-
-A primeira linha contém um número natural $V$ (limite de vagas). As linhas seguintes contêm as inscrições no formato:
-`NOME_ALUNO CAT_1 CAT_2 ...`
-O programa deve ler até o fim do arquivo (**EOF**).
-
-## Especificações de Saída
-
-Relatório formatado conforme os exemplos abaixo.
-
----
-
-## Exemplos de Teste
-
-### Exemplo 1 (Conforme imagem do problema)
-
-**Entrada:**
-```text
-5
-joao 1 2 3 4
-maria 5 4 3 2
-jose 5 1
-carlos 5 2 1 6 4
-ana 5
