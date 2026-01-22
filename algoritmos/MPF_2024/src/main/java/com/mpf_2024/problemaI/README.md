@@ -1,4 +1,3 @@
----
 
 # Problema I: Enchendo linguiça
 
@@ -37,5 +36,4 @@ Imprima um inteiro entre 0 e 2 indicando o tipo de configuração correspondente
 | :--- | :--- |
 | 8<br>19<br>13<br>17<br>7<br>11<br>3<br>7<br>5 | 2 |
 
----
 *Maratona de Programação InterFatecs 2024 - Problema I: Enchendo linguiça*
