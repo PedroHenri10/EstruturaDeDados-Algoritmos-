@@ -21,48 +21,43 @@ public class Main {
         return ' ';
     }
     
+    static boolean match(String s, int l, int r){
+        return s.charAt(l) == comp(s.charAt(r));
+    }
+    
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         
         while(sc.hasNext()){
             String dna = sc.next();
-            int len = dna.length();
+            int n = dna.length();
             
             int maxLen = 0;
             int pos = -1;
             
-            for(int i =0; i < len; i++){
-                for(int j =0; j < len; j++){
-                    boolean ok = true;
+            for(int  c=0; c < n -1 ; c++){
+                int l =c;
+                int r = c+1;
+                
+                while(l >=0 && r<n && match(dna, l,r)){
+                    int tam = r -l+1;
                     
-                    int l =i;
-                    int r = j;
-                    
-                    while(l <= r){
-                        if(dna.charAt(l) != comp(dna.charAt(r))){
-                            ok = false;
-                            break;
-                        }
-                        j++;
-                        r--;
-                    }
-                    
-                    int tam = j - i +1;
-                    
-                    if(ok && tam > maxLen){
+                    if(tam > maxLen){
                         maxLen = tam;
-                        pos = i +1;
+                        pos = l +1;
+                    }
+                        l--;
+                        r++;
                     }
                 }
-            }
             
-            if(maxLen == 0){
-                System.out.println("false");
-            }else{
-                System.out.println(pos + " " + maxLen);
+                if(maxLen == 0){
+                    System.out.println("false");
+                }else{
+                    System.out.println(pos + " " + maxLen);
+                }
             }
-        }
-        
+           
         sc.close();
     }
 }
