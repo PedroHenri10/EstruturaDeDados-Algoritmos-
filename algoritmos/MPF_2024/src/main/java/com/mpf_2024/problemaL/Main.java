@@ -40,11 +40,11 @@ public class Main {
                 int r = c+1;
                 
                 while(l >=0 && r<n && match(dna, l,r)){
-                    int tam = r -l+1;
-                    
-                    if(tam > maxLen){
+                    int tam = r - l + 1;
+
+                    if (tam >= 4 && tam > maxLen) {
                         maxLen = tam;
-                        pos = l +1;
+                        pos = l + 1;
                     }
                         l--;
                         r++;
