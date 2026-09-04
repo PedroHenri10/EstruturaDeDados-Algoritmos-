@@ -2,47 +2,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 class KindergartenGarden {
-
-    String[] alunos = {"Alice", "Bob", "Charlie", "David", "Eve", "Fred", "Ginny", "Harriet", "Ileana", "Joseph", "Kincaid",  "Larry"};
-    ArrayList<Character> primeiraFileira = new ArrayList<>();
-    ArrayList<Character> segundaFileira =new ArrayList<>();
+    private final List<String> alunos = List.of("Alice", "Bob", "Charlie", "David", "Eve", "Fred", "Ginny", "Harriet", "Ileana", "Joseph", "Kincaid", "Larry");
+    private final String[] fileiras;
 
     KindergartenGarden(String garden) {
-        boolean interruptor = false;
-
-        for(char c : garden.toCharArray()){
-
-            if(c == '\n'){
-                interruptor = true;
-                continue;
-            }
-
-            if(!interruptor){
-                primeiraFileira.add(c);
-            }else{
-                segundaFileira.add(c);
-            }
-
-        }
-
+        this.fileiras = garden.split("\n");
     }
 
     List<Plant> getPlantsOfStudent(String student) {
-        List<Plant> lista = new ArrayList<>();
+        // .indexOf() substitui o seu loop "for" de busca e já te dá o índice direto
+        int indiceInicio = alunos.indexOf(student) * 2;
 
-        int indiceInicio = 0;
-        for(int i = 0; i < alunos.length; i++){
-            if(alunos[i].equals(student)){
-                indiceInicio = i * 2;
-            }
-        }
+        List<Plant> plantasDoAluno = new ArrayList<>();
+        
+        plantasDoAluno.add(Plant.getPlant(fileiras[0].charAt(indiceInicio)));
+        plantasDoAluno.add(Plant.getPlant(fileiras[0].charAt(indiceInicio + 1)));
+        
+        plantasDoAluno.add(Plant.getPlant(fileiras[1].charAt(indiceInicio)));
+        plantasDoAluno.add(Plant.getPlant(fileiras[1].charAt(indiceInicio + 1)));
 
-        lista.add(Plant.getPlant(primeiraFileira.get(indiceInicio)));
-        lista.add(Plant.getPlant(primeiraFileira.get(indiceInicio +1)));
-        lista.add(Plant.getPlant(segundaFileira.get(indiceInicio)));
-        lista.add(Plant.getPlant(segundaFileira.get(indiceInicio +1)));
-
-        return lista;
+        return plantasDoAluno;
     }
-
 }
