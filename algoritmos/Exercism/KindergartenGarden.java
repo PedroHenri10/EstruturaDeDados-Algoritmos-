@@ -10,7 +10,6 @@ class KindergartenGarden {
     }
 
     List<Plant> getPlantsOfStudent(String student) {
-        // .indexOf() substitui o seu loop "for" de busca e já te dá o índice direto
         int indiceInicio = alunos.indexOf(student) * 2;
 
         List<Plant> plantasDoAluno = new ArrayList<>();
