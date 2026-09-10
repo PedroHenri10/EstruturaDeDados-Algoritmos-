@@ -17,3 +17,19 @@ class Darts {
         }
     }
 }
+
+/*
+class Darts {
+
+    int score(final double xOfDart, final double yOfDart) {
+        final double distancia = Math.hypot(xOfDart, yOfDart);
+
+        if (distancia <= 1.0) return 10;
+        if (distancia <= 5.0) return 5;
+        if (distancia <= 10.0) return 1;
+        
+        return 0; 
+    }
+}
+
+*/
