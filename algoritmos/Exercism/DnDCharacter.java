@@ -81,3 +81,51 @@ class DnDCharacter {
         return hitpoints;
     }
 }
+
+/*
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
+
+public class DnDCharacter {
+
+    private final int strength;
+    private final int dexterity;
+    private final int constitution;
+    private final int intelligence;
+    private final int wisdom;
+    private final int charisma;
+    private final int hitpoints;
+
+    public DnDCharacter() {
+        this.strength = ability(rollDice());
+        this.dexterity = ability(rollDice());
+        this.constitution = ability(rollDice());
+        this.intelligence = ability(rollDice());
+        this.wisdom = ability(rollDice());
+        this.charisma = ability(rollDice());
+        this.hitpoints = 10 + modifier(this.constitution);
+    }
+
+    public int ability(final List<Integer> scores) {
+        return scores.stream()
+                .sorted()             
+                .skip(1)              
+                .mapToInt(Integer::intValue)
+                .sum();               
+    }
+
+    public List<Integer> rollDice() {
+        return ThreadLocalRandom.current()
+                .ints(4, 1, 7) // Gera 4 números inteiros entre 1 (inclusivo) e 7 (exclusivo)
+                .boxed()
+                .collect(Collectors.toList());
+    }
+
+    public int modifier(final int input) {
+        return Math.floorDiv(input - 10, 2);
+    }
+
+}
+
+*/
