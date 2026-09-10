@@ -22,3 +22,21 @@ class ArmstrongNumbers {
     }
 
 }
+/*
+public class ArmstrongNumbers {
+
+    public boolean isArmstrongNumber(int numberToCheck) {
+        String digits = String.valueOf(numberToCheck);
+        int power = digits.length();
+        int sum = 0;
+
+        for (int i = 0; i < power; i++) {
+            int digit = Character.getNumericValue(digits.charAt(i));
+            sum += (int) Math.getExponent(digit); 
+        }
+
+        return sum == numberToCheck;
+    }
+}
+
+*/
