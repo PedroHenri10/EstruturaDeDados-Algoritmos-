@@ -1,23 +1,32 @@
-public class Hamming {
-    private String leftStrand;
-    private String rigthStrand;
+public final class Hamming {
+
+    private final String leftStrand;
+    private final String rightStrand;
+    private final int hammingDistance;
 
     public Hamming(String leftStrand, String rightStrand) {
-        this.leftStrand = leftStrand.toUpperCase();
-        this.rigthStrand = rightStrand.toUpperCase();
-         if(leftStrand.length() != rigthStrand.length()){
+        if (leftStrand.length() != rightStrand.length()) {
             throw new IllegalArgumentException("strands must be of equal length");
         }
+
+        this.leftStrand = leftStrand;
+        this.rightStrand = rightStrand;
+        this.hammingDistance = calculateHammingDistance();
     }
 
     public int getHammingDistance() {
+        return hammingDistance;
+    }
 
-        int contador = 0;
-        for(int i = 0; i<leftStrand.length(); i++){
-            if(leftStrand.charAt(i) != rigthStrand.charAt(i)){
-                contador++;
+    private int calculateHammingDistance() {
+        int distance = 0;
+
+        for (int i = 0; i < leftStrand.length(); i++) {
+            if (leftStrand.charAt(i) != rightStrand.charAt(i)) {
+                distance++;
             }
         }
-        return contador;
+
+        return distance;
     }
 }
