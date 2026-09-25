@@ -28,3 +28,42 @@ class PrimeCalculator {
     }
 
 }
+/*
+class PrimeCalculator {
+
+    int nth(int nth) {
+
+        if (nth == 0) {
+            throw new IllegalArgumentException();
+        }
+
+        if (nth == 1) {
+            return 2;
+        }
+
+        int primeQtd = 1;
+
+        for (int number = 3; ; number += 2) {
+
+            if (isPrime(number)) {
+                primeQtd++;
+
+                if (primeQtd == nth) {
+                    return number;
+                }
+            }
+        }
+    }
+
+    private boolean isPrime(int number) {
+
+        for (int divisor = 3; divisor * divisor <= number; divisor += 2) {
+
+            if (number % divisor == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}*/
