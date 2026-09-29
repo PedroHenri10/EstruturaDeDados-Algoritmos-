@@ -18,5 +18,27 @@ class WordCount {
     }
 }
 
+/*
+import java.util.HashMap;
+import java.util.Map;
 
+class WordCount {
 
+    public Map<String, Integer> phrase(String input) {
+        Map<String, Integer> wordCounts = new HashMap<>();
+
+        String normalizedInput = input.toLowerCase();
+        String[] words = normalizedInput.split(
+                "([^a-zA-Z0-9']|(?<![a-zA-Z])'|'(?![a-zA-Z]))+"
+        );
+
+        for (String word : words) {
+            if (!word.isEmpty()) {
+                wordCounts.merge(word, 1, Integer::sum);
+            }
+        }
+
+        return wordCounts;
+    }
+}
+*/
