@@ -145,3 +145,140 @@ class Tournament {
         }
     }
 }
+/*
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+class Tournament {
+
+    private final Map<String, TeamStats> teams = new HashMap<>();
+
+    void applyResults(String resultString) {
+
+        for (String match : resultString.split("\n")) {
+
+            String[] data = match.split(";");
+
+            TeamStats home = getOrCreate(data[0]);
+            TeamStats away = getOrCreate(data[1]);
+
+            home.played();
+            away.played();
+
+            switch (data[2]) {
+                case "win" -> {
+                    home.win();
+                    away.loss();
+                }
+                case "loss" -> {
+                    home.loss();
+                    away.win();
+                }
+                case "draw" -> {
+                    home.draw();
+                    away.draw();
+                }
+            }
+        }
+    }
+
+    String printTable() {
+
+        List<TeamStats> orderedTeams = new ArrayList<>(teams.values());
+
+        orderedTeams.sort(
+                Comparator
+                        .comparingInt(TeamStats::points).reversed()
+                        .thenComparing(TeamStats::name)
+        );
+
+        StringBuilder result = new StringBuilder();
+
+        result.append(
+                String.format(
+                        "%-30s | %2s | %2s | %2s | %2s | %2s%n",
+                        "Team", "MP", "W", "D", "L", "P"
+                )
+        );
+
+        for (TeamStats team : orderedTeams) {
+            result.append(
+                    String.format(
+                            "%-30s | %2d | %2d | %2d | %2d | %2d%n",
+                            team.name(),
+                            team.played(),
+                            team.wins(),
+                            team.draws(),
+                            team.losses(),
+                            team.points()
+                    )
+            );
+        }
+
+        return result.toString();
+    }
+
+    private TeamStats getOrCreate(String name) {
+        return teams.computeIfAbsent(name, TeamStats::new);
+    }
+
+    static class TeamStats {
+
+        private final String name;
+        private int played;
+        private int wins;
+        private int draws;
+        private int losses;
+        private int points;
+
+        TeamStats(String name) {
+            this.name = name;
+        }
+
+        void played() {
+            played++;
+        }
+
+        void win() {
+            wins++;
+            points += 3;
+        }
+
+        void draw() {
+            draws++;
+            points++;
+        }
+
+        void loss() {
+            losses++;
+        }
+
+        String name() {
+            return name;
+        }
+
+        int played() {
+            return played;
+        }
+
+        int wins() {
+            return wins;
+        }
+
+        int draws() {
+            return draws;
+        }
+
+        int losses() {
+            return losses;
+        }
+
+        int points() {
+            return points;
+        }
+    }
+}
+*/
