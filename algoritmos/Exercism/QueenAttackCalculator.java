@@ -59,3 +59,15 @@ class QueenAttackCalculator {
     }
 
 }
+/*
+boolean canQueensAttackOneAnother() {
+        boolean sameRow = queen1.getRow() == queen2.getRow();
+        boolean sameColumn = queen1.getColumn() == queen2.getColumn();
+
+        boolean sameDiagonal =
+                Math.abs(queen1.getRow() - queen2.getRow())
+                == Math.abs(queen1.getColumn() - queen2.getColumn());
+
+        return sameRow || sameColumn || sameDiagonal;
+    }
+*/
