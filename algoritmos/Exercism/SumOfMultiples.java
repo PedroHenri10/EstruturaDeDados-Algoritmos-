@@ -32,3 +32,32 @@ class SumOfMultiples {
                 .sum();
     }
 }
+/*
+import java.util.HashSet;
+import java.util.Set;
+
+class SumOfMultiples {
+
+    private final int number;
+    private final int[] set;
+
+    SumOfMultiples(int number, int[] set) {
+        this.number = number;
+        this.set = set;
+    }
+
+    int getSum() {
+        Set<Integer> multiples = new HashSet<>();
+
+        for (int value : set) {
+            for (int multiple = value; multiple < number; multiple += value) {
+                multiples.add(multiple);
+            }
+        }
+
+        return multiples.stream()
+                .mapToInt(Integer::intValue)
+                .sum();
+    }
+}
+*/
