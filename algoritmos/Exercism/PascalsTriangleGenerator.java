@@ -17,3 +17,26 @@ class PascalsTriangleGenerator {
         return matriz;
     }
 }
+/*
+class PascalsTriangleGenerator {
+
+    int[][] generateTriangle(int rows) {
+        int[][] triangle = new int[rows][];
+
+        for (int row = 0; row < rows; row++) {
+            triangle[row] = new int[row + 1];
+
+            triangle[row][0] = 1;
+            triangle[row][row] = 1;
+
+            for (int column = 1; column < row; column++) {
+                triangle[row][column] =
+                        triangle[row - 1][column - 1]
+                        + triangle[row - 1][column];
+            }
+        }
+
+        return triangle;
+    }
+}
+*/
