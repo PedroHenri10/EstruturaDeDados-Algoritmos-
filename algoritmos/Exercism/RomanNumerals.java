@@ -78,3 +78,39 @@ class RomanNumerals {
         return resultado.toString();
     }
 }
+/*
+class RomanNumerals {
+
+    private static final int[] VALUES = {
+        1000, 900, 500, 400,
+        100, 90, 50, 40,
+        10, 9, 5, 4, 1
+    };
+
+    private static final String[] SYMBOLS = {
+        "M", "CM", "D", "CD",
+        "C", "XC", "L", "XL",
+        "X", "IX", "V", "IV", "I"
+    };
+
+    private final int number;
+
+    RomanNumerals(int number) {
+        this.number = number;
+    }
+
+    String getRomanNumeral() {
+        StringBuilder result = new StringBuilder();
+        int remaining = number;
+
+        for (int i = 0; i < VALUES.length; i++) {
+            while (remaining >= VALUES[i]) {
+                result.append(SYMBOLS[i]);
+                remaining -= VALUES[i];
+            }
+        }
+
+        return result.toString();
+    }
+}
+*/
