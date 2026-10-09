@@ -25,6 +25,11 @@ class Sieve {
             }
         }
     }
+
+    List<Integer> getPrimes() {
+        return primes;
+    }
+}
 /*
     import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +69,3 @@ class Sieve {
     }
 }
 */
-    List<Integer> getPrimes() {
-        return primes;
-    }
-}
