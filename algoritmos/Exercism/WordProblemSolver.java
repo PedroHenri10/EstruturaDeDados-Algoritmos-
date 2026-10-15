@@ -80,3 +80,84 @@ class WordProblemSolver {
         return new IllegalArgumentException("I'm sorry, I don't understand the question!");
     }
 }
+/*
+
+class WordProblemSolver {
+
+    int solve(String question) {
+        if (question == null || !question.startsWith("What is ") || !question.endsWith("?")) {
+            throw invalidQuestion();
+        }
+
+        String expression = question
+                .substring(8, question.length() - 1)
+                .trim();
+
+        String[] tokens = expression.split("\\s+");
+
+        if (expression.isEmpty()) {
+            throw invalidQuestion();
+        }
+
+        int result = parseNumber(tokens[0]);
+
+        for (int i = 1; i < tokens.length;) {
+            String operator = tokens[i];
+            int numberIndex = i + 1;
+
+            if (operator.equals("multiplied")
+                    || operator.equals("divided")) {
+                if (numberIndex >= tokens.length
+                        || !tokens[numberIndex].equals("by")) {
+                    throw invalidQuestion();
+                }
+
+                numberIndex++;
+            }
+
+            if (numberIndex >= tokens.length) {
+                throw invalidQuestion();
+            }
+
+            int number = parseNumber(tokens[numberIndex]);
+
+            result = calculate(result, operator, number);
+
+            i = numberIndex + 1;
+        }
+
+        return result;
+    }
+
+    private int parseNumber(String value) {
+        try {
+            return Integer.parseInt(value);
+        } catch (NumberFormatException e) {
+            throw invalidQuestion();
+        }
+    }
+
+    private int calculate(int left, String operator, int right) {
+        switch (operator) {
+            case "plus":
+                return left + right;
+            case "minus":
+                return left - right;
+            case "multiplied":
+                return left * right;
+            case "divided":
+                if (right == 0) {
+                    throw invalidQuestion();
+                }
+                return left / right;
+            default:
+                throw invalidQuestion();
+        }
+    }
+
+    private IllegalArgumentException invalidQuestion() {
+        return new IllegalArgumentException("I'm sorry, I don't understand the question!");
+    }
+}
+
+*/
